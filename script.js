@@ -177,14 +177,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const productName = this.getAttribute('data-product');
             const description = this.getAttribute('data-description');
             const price = this.getAttribute('data-price');
-            const category = this.getAttribute('data-category');
             const imageSrc = this.getAttribute('data-image');
 
             // Populate modal
             document.getElementById('modalTitle').textContent = productName;
             document.getElementById('modalDescription').textContent = description;
             document.getElementById('modalPrice').textContent = price;
-            document.getElementById('modalCategory').textContent = category;
 
             // Handle Modal Image
             const modalImage = document.getElementById('modalImage');
