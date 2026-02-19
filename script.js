@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const toastMessage = document.getElementById('toastMessage');
 
     // Instagram DM URL
-    const INSTAGRAM_DM_URL = 'https://www.instagram.com/khmart.in?igsh=MTB2dWFrYzVwcDByNw==';
+    const INSTAGRAM_DM_URL = 'https://www.instagram.com/venzoex.online?igsh=dzR5M3Rqc28ycnBx';
 
     // Mobile Menu Toggle
     hamburger.addEventListener('click', function() {
@@ -178,12 +178,26 @@ document.addEventListener('DOMContentLoaded', function() {
             const description = this.getAttribute('data-description');
             const price = this.getAttribute('data-price');
             const category = this.getAttribute('data-category');
+            const imageSrc = this.getAttribute('data-image');
 
             // Populate modal
             document.getElementById('modalTitle').textContent = productName;
             document.getElementById('modalDescription').textContent = description;
             document.getElementById('modalPrice').textContent = price;
             document.getElementById('modalCategory').textContent = category;
+
+            // Handle Modal Image
+            const modalImage = document.getElementById('modalImage');
+            const modalPlaceholder = document.getElementById('modalPlaceholder');
+
+            if (imageSrc) {
+                modalImage.src = imageSrc;
+                modalImage.style.display = 'block';
+                modalPlaceholder.style.display = 'none';
+            } else {
+                modalImage.style.display = 'none';
+                modalPlaceholder.style.display = 'flex';
+            }
 
             // Show modal
             modal.classList.add('active');
