@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenZoex - Exclusive Useful Finds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="images/logo.jpeg" alt="VenZoex Logo" class="logo-img">
+            </div>
+
+            <!-- Desktop Menu -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#earrings" class="nav-link">Earrings</a></li>
+                <li><a href="#bracelets" class="nav-link">Bracelets</a></li>
+                <li><a href="#pendants" class="nav-link">Pendants</a></li>
+            </ul>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="brand-name">
+                <span class="typing-text">VenZoex</span>
+            </h1>
+            <p class="tagline">Exclusive useful finds — order via Instagram DM</p>
+        </div>
+        <div class="coffee-animation">
+            <div class="steam steam-1"></div>
+            <div class="steam steam-2"></div>
+            <div class="steam steam-3"></div>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search products...">
+                <button class="search-btn" id="searchBtn">🔍</button>
+            </div>
+            <div class="filter-chips" id="filterChips">
+                <button class="chip active" data-category="all">All</button>
+                <button class="chip" data-category="earrings">Earrings</button>
+                <button class="chip" data-category="bracelets">Bracelets</button>
+                <button class="chip" data-category="pendants">Pendants</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Catalog -->
+    <main class="catalog">
+        <div class="container">
+            
+            <!-- Earrings Section -->
+            <section id="earrings" class="category-section">
+                <h2 class="category-title">Earrings</h2>
+                <div class="products-grid" id="earrings-grid">
+                    <!-- Product: VEEA01 -->
+                    <div class="product-card" data-category="earrings" data-name="Midnight Star Hoops">
+                        <div class="product-image">
+                            <img src="images/photo_2026-03-24_18-54-59.jpg" alt="Midnight Star Hoops" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Midnight Star Hoops</h3>
+                            <p class="product-description">Code: VEEA01. Elegant midnight-inspired star hoops for a celestial look.</p>
+                            <p class="product-price">₹349</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VEEA01 – Midnight Star Hoops" data-price="₹349">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VEEA01 – Midnight Star Hoops" data-description="Elegant midnight-inspired star hoops for a celestial look. High-quality finish and lightweight design." data-price="₹349" data-category="Earrings">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VEEA02 -->
+                    <div class="product-card" data-category="earrings" data-name="Royal Square Jhumka">
+                        <div class="product-image">
+                            <img src="images/photo_2026-03-24_18-55-06.jpg" alt="Royal Square Jhumka" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Royal Square Jhumka</h3>
+                            <p class="product-description">Code: VEEA02. Traditional square-shaped jhumkas with a royal touch.</p>
+                            <p class="product-price">₹399</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VEEA02 – Royal Square Jhumka" data-price="₹399">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VEEA02 – Royal Square Jhumka" data-description="Traditional square-shaped jhumkas with a royal touch. Perfect for weddings and festive occasions." data-price="₹399" data-category="Earrings">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VEEA03 -->
+                    <div class="product-card" data-category="earrings" data-name="Pearl Blossom Drops">
+                        <div class="product-image">
+                            <img src="images/photo_2026-03-24_18-55-10.jpg" alt="Pearl Blossom Drops" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Pearl Blossom Drops</h3>
+                            <p class="product-description">Code: VEEA03. Delicate floral drops accented with premium pearls.</p>
+                            <p class="product-price">₹299</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VEEA03 – Pearl Blossom Drops" data-price="₹299">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VEEA03 – Pearl Blossom Drops" data-description="Delicate floral drops accented with premium pearls. Adds a feminine touch to any outfit." data-price="₹299" data-category="Earrings">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VEEA04 -->
+                    <div class="product-card" data-category="earrings" data-name="Midnight Royal Jhumka">
+                        <div class="product-image">
+                            <img src="images/photo_2026-03-24_18-55-11.jpg" alt="Midnight Royal Jhumka" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Midnight Royal Jhumka</h3>
+                            <p class="product-description">Code: VEEA04. Dark-themed jhumkas with intricate royal craftsmanship.</p>
+                            <p class="product-price">₹349</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VEEA04 – Midnight Royal Jhumka" data-price="₹349">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VEEA04 – Midnight Royal Jhumka" data-description="Dark-themed jhumkas with intricate royal craftsmanship. A unique blend of traditional and modern styles." data-price="₹349" data-category="Earrings">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bracelets Section -->
+            <section id="bracelets" class="category-section">
+                <h2 class="category-title">Bracelets</h2>
+                <div class="products-grid" id="bracelets-grid">
+                    <!-- Product: VBBR01 -->
+                    <div class="product-card" data-category="bracelets" data-name="Candy Heart Bracelet">
+                        <div class="product-image">
+                            <img src="images/photo_2026-03-24_18-55-05.jpg" alt="Candy Heart Bracelet" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Candy Heart Bracelet</h3>
+                            <p class="product-description">Code: VBBR01. Sweet heart-shaped charms for a playful look.</p>
+                            <p class="product-price">₹299</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VBBR01 – Candy Heart Bracelet" data-price="₹299">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VBBR01 – Candy Heart Bracelet" data-description="Sweet heart-shaped charms for a playful look. Adjustable chain to fit all wrist sizes." data-price="₹299" data-category="Bracelets">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VBBR02 -->
+                    <div class="product-card" data-category="bracelets" data-name="Pink Love Bracelet">
+                        <div class="product-image">
+                            <img src="images/photo_2026-03-24_18-55-13.jpg" alt="Pink Love Bracelet" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Pink Love Bracelet</h3>
+                            <p class="product-description">Code: VBBR02. Romantic pink tones with "Love" inspired charms.</p>
+                            <p class="product-price">₹299</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VBBR02 – Pink Love Bracelet" data-price="₹299">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VBBR02 – Pink Love Bracelet" data-description="Romantic pink tones with 'Love' inspired charms. Perfect gift for someone special." data-price="₹299" data-category="Bracelets">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VBBR03 -->
+                    <div class="product-card" data-category="bracelets" data-name="Twin Charm Bracelet">
+                        <div class="product-image">
+                            <img src="images/photo_2026-03-24_18-55-21.jpg" alt="Twin Charm Bracelet" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Twin Charm Bracelet</h3>
+                            <p class="product-description">Code: VBBR03. Featuring dual matching charms for a balanced design.</p>
+                            <p class="product-price">₹349</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VBBR03 – Twin Charm Bracelet" data-price="₹349">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VBBR03 – Twin Charm Bracelet" data-description="Featuring dual matching charms for a balanced design. Durable and stylish for daily wear." data-price="₹349" data-category="Bracelets">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VBBR04 -->
+                    <div class="product-card" data-category="bracelets" data-name="Classic Pearl Bracelet">
+                        <div class="product-image">
+                            <img src="images/WhatsApp Image 2026-03-07 at 6.55.18 AM.jpeg" alt="Classic Pearl Bracelet" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Classic Pearl Bracelet</h3>
+                            <p class="product-description">Code: VBBR04. Timeless pearls that bring elegance to any attire.</p>
+                            <p class="product-price">₹299</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VBBR04 – Classic Pearl Bracelet" data-price="₹299">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VBBR04 – Classic Pearl Bracelet" data-description="Timeless pearls that bring elegance to any attire. High-lustre synthetic pearls with a secure clasp." data-price="₹299" data-category="Bracelets">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VBBR05 -->
+                    <div class="product-card" data-category="bracelets" data-name="Sunny Glow Bracelet">
+                        <div class="product-image">
+                            <img src="images/WhatsApp Image 2026-03-07 at 6.55.21 AM4yty.jpeg" alt="Sunny Glow Bracelet" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Sunny Glow Bracelet</h3>
+                            <p class="product-description">Code: VBBR05. Radiant charms that capture and reflect light beautifully.</p>
+                            <p class="product-price">₹249</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VBBR05 – Sunny Glow Bracelet" data-price="₹249">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VBBR05 – Sunny Glow Bracelet" data-description="Radiant charms that capture and reflect light beautifully. Ideal for daytime outings." data-price="₹249" data-category="Bracelets">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VBBR07 -->
+                    <div class="product-card" data-category="bracelets" data-name="Panda Charm Bracelet">
+                        <div class="product-image">
+                            <img src="images/WhatsApp Image 2026-03-07 at 6.55.21 AMytf.jpeg" alt="Panda Charm Bracelet" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Panda Charm Bracelet</h3>
+                            <p class="product-description">Code: VBBR07. Adorable panda charm for a cute and trendy vibe.</p>
+                            <p class="product-price">₹299</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VBBR07 – Panda Charm Bracelet" data-price="₹299">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VBBR07 – Panda Charm Bracelet" data-description="Adorable panda charm for a cute and trendy vibe. A favorite among animal lovers." data-price="₹299" data-category="Bracelets">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VBBR09 -->
+                    <div class="product-card" data-category="bracelets" data-name="Panda Duo Bracelet">
+                        <div class="product-image">
+                            <img src="images/WhatsApp Image 2026-03-07 at 6.55.22 AMtst.jpeg" alt="Panda Duo Bracelet" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Panda Duo Bracelet</h3>
+                            <p class="product-description">Code: VBBR09. Twin panda charms for a doubled cute factor.</p>
+                            <p class="product-price">₹299</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VBBR09 – Panda Duo Bracelet" data-price="₹299">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VBBR09 – Panda Duo Bracelet" data-description="Twin panda charms for a doubled cute factor. Stylish black and white bead work." data-price="₹299" data-category="Bracelets">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VBBR10 -->
+                    <div class="product-card" data-category="bracelets" data-name="Snow Panda Bracelet">
+                        <div class="product-image">
+                            <img src="images/WhatsApp Image 2026-03-07 at 6.55.22 AMtuyfuy.jpeg" alt="Snow Panda Bracelet" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Snow Panda Bracelet</h3>
+                            <p class="product-description">Code: VBBR10. Pristine white themed bracelet with a panda charm.</p>
+                            <p class="product-price">₹299</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VBBR10 – Snow Panda Bracelet" data-price="₹299">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VBBR10 – Snow Panda Bracelet" data-description="Pristine white themed bracelet with a panda charm. Elegant and fun at the same time." data-price="₹299" data-category="Bracelets">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pendants Section -->
+            <section id="pendants" class="category-section">
+                <h2 class="category-title">Pendants</h2>
+                <div class="products-grid" id="pendants-grid">
+                    <!-- Product: VPPE01 -->
+                    <div class="product-card" data-category="pendants" data-name="Royal Blue Clover Pendant">
+                        <div class="product-image">
+                            <img src="images/photo_2026-03-24_18-54-57.jpg" alt="Royal Blue Clover Pendant" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Royal Blue Clover Pendant</h3>
+                            <p class="product-description">Code: VPPE01. A lucky clover pendant in deep royal blue.</p>
+                            <p class="product-price">₹349</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VPPE01 – Royal Blue Clover Pendant" data-price="₹349">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VPPE01 – Royal Blue Clover Pendant" data-description="A lucky clover pendant in deep royal blue. Symbolizes luck and elegance." data-price="₹349" data-category="Pendants">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product: VPPE02 -->
+                    <div class="product-card" data-category="pendants" data-name="Sky Butterfly Pendant">
+                        <div class="product-image">
+                            <img src="images/photo_2026-03-24_18-55-03.jpg" alt="Sky Butterfly Pendant" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Sky Butterfly Pendant</h3>
+                            <p class="product-description">Code: VPPE02. Graceful butterfly pendant with sky blue accents.</p>
+                            <p class="product-price">₹299</p>
+                            <div class="product-buttons">
+                                <button class="btn btn-primary dm-btn" data-product="VPPE02 – Sky Butterfly Pendant" data-price="₹299">DM ME</button>
+                                <button class="btn btn-secondary details-btn" data-product="VPPE02 – Sky Butterfly Pendant" data-description="Graceful butterfly pendant with sky blue accents. Represents transformation and beauty." data-price="₹299" data-category="Pendants">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">VenZoex • Order via Instagram DM</p>
+            <p class="footer-copyright">&copy; 2026 VenZoex. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Product Details Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image" id="modalImageContainer">
+                    <!-- Dynamic content: Image or Placeholder -->
+                </div>
+                <div class="modal-info">
+                    <span class="modal-category" id="modalCategory">Category</span>
+                    <h2 class="modal-title" id="modalTitle">Product Name</h2>
+                    <p class="modal-description" id="modalDescription">Product description goes here...</p>
+                    <p class="modal-price" id="modalPrice">₹0</p>
+                    <button class="btn btn-primary modal-dm-btn" id="modalDmBtn">DM ME</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-message" id="toastMessage">Message copied to clipboard!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
