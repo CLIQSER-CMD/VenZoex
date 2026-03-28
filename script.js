@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const toastMessage = document.getElementById('toastMessage');
 
     // Instagram DM URL
-    const INSTAGRAM_DM_URL = 'https://www.instagram.com/khmart.in?igsh=MTB2dWFrYzVwcDByNw==';
+    const INSTAGRAM_DM_URL = 'https://www.instagram.com/venzoex.online/';
 
     // Mobile Menu Toggle
     hamburger.addEventListener('click', function() {
@@ -175,7 +175,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // DM Button Functionality
     function handleDMClick(productName, price) {
-        const message = `Hi, I want to order: ${productName} (${price}) from VenZoex`;
+        // Splitting "Code – Name" for better formatting
+        const parts = productName.split(' – ');
+        const code = parts[0] || 'N/A';
+        const name = parts[1] || productName;
+
+        const message = `Hi VenZoex! I'd like to order:
+Product: ${name}
+Code: ${code}
+Price: ${price}`;
+
         copyToClipboard(message);
         showToast('Message copied! Opening Instagram...');
         setTimeout(() => {
