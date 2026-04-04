@@ -16,15 +16,81 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalDmBtn = document.getElementById('modalDmBtn');
     const toast = document.getElementById('toast');
     const toastMessage = document.getElementById('toastMessage');
+    
+    // New Feature Elements
+    const themeToggle = document.getElementById('themeToggle');
+    const sortSelect = document.getElementById('sortSelect');
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    const backToTop = document.getElementById('backToTop');
 
     // Instagram DM URL
     const INSTAGRAM_DM_URL = 'https://www.instagram.com/venzoex.online/';
+
+    // Theme logic
+    const currentTheme = localStorage.getItem('venzoex_theme') || 'light';
+    if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if(themeToggle) themeToggle.innerHTML = '<span class="icon-sun">☀️</span>';
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('venzoex_theme', 'light');
+                themeToggle.innerHTML = '<span class="icon-moon">🌙</span>';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('venzoex_theme', 'dark');
+                themeToggle.innerHTML = '<span class="icon-sun">☀️</span>';
+            }
+        });
+    }
 
     // Mobile Menu Toggle
     hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
+
+    // Helper: Parse Price
+    function parsePrice(priceStr) {
+        if (!priceStr) return 0;
+        const parsed = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
+        return isNaN(parsed) ? 0 : parsed;
+    }
+
+    // Sort Products Function
+    function sortProducts() {
+        if (!sortSelect) return;
+        const sortValue = sortSelect.value;
+        const grids = document.querySelectorAll('.products-grid');
+        
+        grids.forEach(grid => {
+            const cards = Array.from(grid.querySelectorAll('.product-card'));
+            
+            cards.forEach((card, index) => {
+                if (sortValue === 'recommended') {
+                    card.style.order = 0; // Natural DOM order
+                } else {
+                    const priceBtn = card.querySelector('.dm-btn');
+                    const priceStr = priceBtn ? priceBtn.getAttribute('data-price') : '0';
+                    const priceVal = parsePrice(priceStr);
+                    
+                    if (sortValue === 'price-low') {
+                        card.style.order = Math.round(priceVal);
+                    } else if (sortValue === 'price-high') {
+                        card.style.order = -Math.round(priceVal);
+                    }
+                }
+            });
+        });
+    }
+
+    if (sortSelect) {
+        sortSelect.addEventListener('change', sortProducts);
+    }
 
     // Unified Filtering Function
     function applyFilters() {
@@ -291,15 +357,156 @@ Price: ${price}`;
         setTimeout(() => toast.classList.remove('active'), 3000);
     }
 
-    // Navbar scroll effect
+    // Navbar scroll effect and Back to Top
     window.addEventListener('scroll', function() {
         const navbar = document.getElementById('navbar');
         if (window.pageYOffset > 100) {
-            navbar.style.boxShadow = '0 2px 20px rgba(74, 55, 40, 0.15)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
         } else {
             navbar.style.boxShadow = '0 2px 10px var(--shadow)';
         }
+        
+        if (backToTop) {
+            if (window.pageYOffset > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
     });
+
+    if (backToTop) {
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // FAQ Accordion Logic
+    if (faqQuestions) {
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const isActive = question.classList.contains('active');
+                
+                // Close all other FAQs
+                faqQuestions.forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.style.maxHeight = null;
+                });
+
+                if (!isActive) {
+                    question.classList.add('active');
+                    const answer = question.nextElementSibling;
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+    }
+
+    // --- The Vault (Wishlist) Logic ---
+    const vaultFab = document.getElementById('vaultFab');
+    const vaultCount = document.getElementById('vaultCount');
+    let vaultItems = JSON.parse(localStorage.getItem('venzoex_vault')) || [];
+
+    // Inject Heart Buttons into all product cards dynamically
+    productCards.forEach(card => {
+        const imageContainer = card.querySelector('.product-image');
+        const productNameRaw = card.getAttribute('data-name');
+        
+        // Extract full product info from the primary DM button in this card
+        const dmBtn = card.querySelector('.dm-btn');
+        const fullProductName = dmBtn ? dmBtn.getAttribute('data-product') : productNameRaw;
+        const price = dmBtn ? dmBtn.getAttribute('data-price') : 'TBD';
+
+        const heartBtn = document.createElement('button');
+        heartBtn.className = 'wishlist-btn tooltip-container';
+        heartBtn.innerHTML = '🤍<span class="tooltip-text">Add to Vault</span>';
+        
+        // Check if already in vault
+        if (vaultItems.some(item => item.product === fullProductName)) {
+            heartBtn.innerHTML = '❤️<span class="tooltip-text">Remove from Vault</span>';
+            heartBtn.classList.add('active');
+        }
+
+        heartBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent defaults
+            
+            const existingIndex = vaultItems.findIndex(item => item.product === fullProductName);
+            
+            if (existingIndex > -1) {
+                // Remove
+                vaultItems.splice(existingIndex, 1);
+                heartBtn.innerHTML = '🤍<span class="tooltip-text">Add to Vault</span>';
+                heartBtn.classList.remove('active');
+                showToast('Removed from Vault');
+            } else {
+                // Add
+                vaultItems.push({ product: fullProductName, price: price });
+                heartBtn.innerHTML = '❤️<span class="tooltip-text">Remove from Vault</span>';
+                heartBtn.classList.add('active');
+                
+                // Pop animation
+                heartBtn.style.transform = 'scale(1.3)';
+                setTimeout(() => heartBtn.style.transform = '', 200);
+                showToast('Added to Vault ✨');
+            }
+            
+            saveVault();
+        });
+
+        if(imageContainer) {
+            imageContainer.appendChild(heartBtn);
+        }
+    });
+
+    function saveVault() {
+        localStorage.setItem('venzoex_vault', JSON.stringify(vaultItems));
+        updateVaultUI();
+    }
+
+    function updateVaultUI() {
+        if(vaultCount) vaultCount.textContent = vaultItems.length;
+        if(vaultFab) {
+            if (vaultItems.length > 0) {
+                vaultFab.classList.add('visible');
+            } else {
+                vaultFab.classList.remove('visible');
+            }
+        }
+    }
+
+    // Initial UI update
+    updateVaultUI();
+
+    // Vault FAB Click - Generate Bulk Order DM
+    if(vaultFab) {
+        vaultFab.addEventListener('click', () => {
+            if (vaultItems.length === 0) return;
+
+            let message = `Hi VenZoex! I'd like to order from my Vault:\n\n`;
+            let totalEstimated = 0;
+
+            vaultItems.forEach((item, index) => {
+                message += `${index + 1}. ${item.product} (${item.price})\n`;
+                // Attempt to parse price to add a total count safely handling decimals
+                const priceVal = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+                if (!isNaN(priceVal)) {
+                    totalEstimated += priceVal;
+                }
+            });
+
+            if (totalEstimated > 0) {
+                message += `\nEstimated Total: ₹${totalEstimated}`;
+            }
+            
+            message += `\n\nPlease let me know the payment details!`;
+
+            copyToClipboard(message);
+            showToast('Vault order copied! Opening Instagram...');
+            setTimeout(() => {
+                window.open(INSTAGRAM_DM_URL, '_blank');
+            }, 1000);
+        });
+    }
 
     console.log('VenZoex Product Catalog enhanced successfully!');
 });
